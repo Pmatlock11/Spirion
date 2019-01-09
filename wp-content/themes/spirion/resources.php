@@ -23,7 +23,7 @@ get_header();
 <div class="wrapper" id="index-wrapper">
 
     <main class="site-main" id="main">
-        <div class="banner discovery add solution">
+        <div class="banner resources no_bg">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">

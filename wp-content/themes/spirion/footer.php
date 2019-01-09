@@ -20,11 +20,11 @@ $container = get_theme_mod('understrap_container_type');
 <footer class="wrapper" id="wrapper-footer">
     <div class="<?php echo esc_attr($container); ?>">
         <div class="row">
-            <div class="col-sm-3 col-6">
+            <div class="col-12 col-sm-3 col-6 xs_none">
                 <a href="#" class="footer_logo"><img src="<?php bloginfo('template_url'); ?>/img/footer_logo.png" class="max_width"></a>
                 <p>Lorem ipsum dolor sit <br>amet, consectetur <br>adipscing elit. In ut <br>velit lectus.</p>
             </div>
-            <div class="col-sm-2 col-6">
+            <div class="col-12 col-sm-2 col-6">
                 <div class="col_holder">
                     <strong>List Title</strong>
                     <ul class="list-unstyled">
@@ -44,7 +44,7 @@ $container = get_theme_mod('understrap_container_type');
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-2 col-6">
+            <div class="col-12 col-sm-2 col-6">
                 <div class="col_holder">
                     <strong>List Title</strong>
                     <ul class="list-unstyled">
@@ -64,7 +64,7 @@ $container = get_theme_mod('understrap_container_type');
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-2 col-6">
+            <div class="col-12 col-sm-2 col-6">
                 <div class="col_holder">
                     <strong>List Title</strong>
                     <ul class="list-unstyled">
@@ -84,7 +84,7 @@ $container = get_theme_mod('understrap_container_type');
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-2 col-6">
+            <div class="col-12 col-sm-2 col-6">
                 <div class="col_holder">
                     <ul class="list-unstyled socials border_bottom">
                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -110,6 +110,10 @@ $container = get_theme_mod('understrap_container_type');
             </div>
         </div><!-- row end -->
         <div class="row">
+            <div class="col-12 col-sm-3 col-6 lg_none">
+                <a href="#" class="footer_logo"><img src="<?php bloginfo('template_url'); ?>/img/footer_logo.png" class="max_width"></a>
+                <p>Lorem ipsum dolor sit <br>amet, consectetur <br>adipscing elit. In ut <br>velit lectus.</p>
+            </div>
             <div class="col-12 text-center rights">
                 <p>2018 Spirion, LLC, All rights Reserved. | <a href="#">Legal</a> | <a href="#">Privacy</a></p>
             </div>
@@ -141,6 +145,11 @@ $container = get_theme_mod('understrap_container_type');
     jQuery(document).ready(function() {
         jQuery(".auto_tabs li:first-child").addClass("active");
         setTimeout(autoAddClass, 3000);
+
+        jQuery('.state_expender').click(function(e) {
+            e.preventDefault();
+            jQuery(this).closest('.row').find('.post_col').slideToggle();
+        });
     });
 
     function autoAddClass() {
@@ -150,9 +159,16 @@ $container = get_theme_mod('understrap_container_type');
         else
             jQuery('.auto_tabs li:first-child').addClass('active');
         setTimeout(autoAddClass, 3000);
-        jQuery('.tab').removeClass('active');
+        jQuery('.auto_switch .tab').removeClass('active');
         var curr_tab = jQuery('.auto_tabs li.active').find('a').attr('href');
         jQuery(curr_tab).addClass('active');
+    }
+
+    var win_width = jQuery(window).width();
+    if (jQuery(win_width < 768)) {
+        jQuery('#wrapper-footer .col_holder').find('strong').click(function() {
+            jQuery(this).closest('.col_holder').find('ul').slideToggle();
+        });
     }
 </script>
 <?php wp_footer(); ?>
