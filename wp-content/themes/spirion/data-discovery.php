@@ -64,8 +64,8 @@ get_header();
             <div class="container-fluid">
                 <div class="row tabbing_row">
                     <div class="col-sm-3 tabset_col">
-                        <ul class="tabs list-unstyled">
-                            <li class="active"><a href="#tab1">Unparalleled <br> Speed</a></li>
+                        <ul class="tabs auto_tabs list-unstyled">
+                            <li><a href="#tab1">Unparalleled <br> Speed</a></li>
                             <li><a href="#tab2">Machine <br> Learning</a></li>
                             <li><a href="#tab3">Powerful <br> Classification</a></li>
                         </ul>

@@ -9,7 +9,7 @@
  */
 
 if (!defined('ABSPATH')) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 $container = get_theme_mod('understrap_container_type');
@@ -137,6 +137,23 @@ $container = get_theme_mod('understrap_container_type');
         var curr_tab = jQuery(this).attr('href');
         jQuery(curr_tab).addClass('active');
     });
+
+    jQuery(document).ready(function() {
+        jQuery(".auto_tabs li:first-child").addClass("active");
+        setTimeout(autoAddClass, 3000);
+    });
+
+    function autoAddClass() {
+        var next = jQuery(".auto_tabs li.active").removeClass("active").next();
+        if (next.length)
+            jQuery(next).addClass('active');
+        else
+            jQuery('.auto_tabs li:first-child').addClass('active');
+        setTimeout(autoAddClass, 3000);
+        jQuery('.tab').removeClass('active');
+        var curr_tab = jQuery('.auto_tabs li.active').find('a').attr('href');
+        jQuery(curr_tab).addClass('active');
+    }
 </script>
 <?php wp_footer(); ?>
 </body>
